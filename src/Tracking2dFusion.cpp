@@ -43,7 +43,7 @@ Tracking2dFusion::Tracking2dFusion()
 
    // converts predicted state to predicted radar measurement
    // (cartesian coordinates to polar coordinates)
-   // and substructs it from radar measurement
+   // and substracts it from radar measurement
    m_f_h_radar = [](const Eigen::VectorXd & z, const Eigen::VectorXd & x_pred)
    {
       Eigen::VectorXd z_pred(3);
@@ -71,7 +71,7 @@ Tracking2dFusion::Tracking2dFusion()
    };
 
    // converts predicted state to predicted lidar measurement
-   // and substructs it from lidar measurement
+   // and substracts it from lidar measurement
    m_f_h_lidar = [this](const Eigen::VectorXd & z, const Eigen::VectorXd & x_pred)
    {
       const Eigen::VectorXd z_pred = this->m_H * x_pred;
